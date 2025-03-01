@@ -1,3 +1,32 @@
+<?php
+include 'koneksi.php';
+
+error_reporting(0);
+session_start();
+
+// if (isset($_SESSION['nama'])) {
+//     header("Location: dasboard.php");
+// }
+
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $pass = md5($_POST['pass']);
+
+    $query = "SELECT * FROM `user` WHERE `email` = '" . $email . "'";
+    $result = mysqli_query($koneksi, $query);
+    if ($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['nama'] = $row['nama'];
+        
+        echo "<script>alert('Berhasil Login!!')</script>";
+        //header("Location: dasboard.php");
+        echo  '<script>window.location="dasboard.php"</script>';
+    } else {
+        echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +55,7 @@
                       </div>
                     </div>
                   </div> 
-                  <form action="#!">
+                  <form action="dasboard.php" method="post">
                     <div class="row gy-3 overflow-hidden">
                       <div class="col-12">
                         <div class="form-floating mb-3">
@@ -36,7 +65,7 @@
                       </div>
                       <div class="col-12">
                         <div class="form-floating mb-3">
-                          <input type="password" class="form-control" name="password" id="password" value="" placeholder="Password" required>
+                          <input type="password" class="form-control" name="pass" id="password" value="" placeholder="Password" required>
                           <label for="password" class="form-label">Password</label>
                         </div>
                       </div>
@@ -50,7 +79,7 @@
                       </div>
                       <div class="col-12">
                         <div class="d-grid">
-                          <button class="btn btn-dark btn-lg" type="submit">Log in</button>
+                          <button class="btn btn-dark btn-lg"name="login" type="submit">Log in</button>
                         </div>
                       </div>
                     </div>

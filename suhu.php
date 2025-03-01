@@ -33,7 +33,6 @@ include "koneksi.php";
     <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
     <!-- Template Main CSS File -->
     <link href="assets/css/dasboard.css" rel="stylesheet">
@@ -60,13 +59,13 @@ include "koneksi.php";
 
                 <li class="nav-item dropdown pe-3">
 
-                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="" data-bs-toggle="dropdown">
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                         <span class="d-none d-md-block dropdown-toggle ps-2">Log Out</span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="logout.php">
+                            <a class="dropdown-item d-flex align-items-center" href="#">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -124,18 +123,18 @@ include "koneksi.php";
     </aside>
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Dashboard</h1>
+            <h1>Parameter</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dasboard.php">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item active">Temperature</li>
                 </ol>
             </nav>
         </div>
         <section class="section dashboard">
             <div class="row">
                 <?php
-                include "card-sensor.php";
+                include "card-suhu.php";
                 ?>
                 <div class="table-responsive">
                     <table class="table datatable">
@@ -145,12 +144,12 @@ include "koneksi.php";
                                     <b>No</b>
                                 </th>
                                 <th>Temperature</th>
-                                <th>pH</th>
-                                <th>Salinitas</th>
-                                <th>Dissolve Oxygen</th>
+                                <!-- <th>pH</th> -->
+                                <!-- <th>Salinitas</th> -->
+                                <!-- <th>Dissolve Oxygen</th> -->
                                 <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
-                                <th>Aerator1</th>
-                                <th>Aerator2</th>
+                                <!-- <th>Aerator1</th>
+                            <th>Aerator2</th> -->
 
                             </tr>
                         </thead>
@@ -165,14 +164,9 @@ include "koneksi.php";
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<tr>
-                                <td>" . $no++ . "</td>
-                                <td>" . $row["temperature"] . "</td>
-                                <td>" . $row["ph"] . "</td>
-                                <td>" . $row["salinity"] . "</td>
-                                <td>" . $row["dissolveOxygen"] . "</td>
-                                <td>" . $row["timestamp"] . "</td>
-                                <td>" . $row["aerator1"] . "</td>
-                                <td>" . $row["aerator2"] . "</td>
+                                <td>" . $no++ . "</td> 
+                                <td>" . $row["temperature"] . "</td> 
+                                <td>" . $row["timestamp"] . "</td> 
                                 </tr>";
                                 }
                             } else {
