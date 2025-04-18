@@ -15,6 +15,7 @@ if ($result->num_rows > 0) {
         "salinity" => "0",
         "dissolveOxygen" => "0",
         "aerator1" => "0",
+        "aerator2" => "0",
         "timestamp" => "No Data"
     ];
 }

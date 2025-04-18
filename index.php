@@ -45,7 +45,7 @@
           <li><a href="#hero" class="active">Home<br></a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="login.php">Login</a></li>
+          <li><a href="http://shrimpcare.aam.seonsu.com/login.php">Login</a></li>
 
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
