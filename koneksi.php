@@ -1,8 +1,10 @@
 <?php
+date_default_timezone_set("Asia/Jakarta");
 $servername = "localhost";   
-$username = "aam123";         
-$password = "aam";            
-$dbname = "aam_shirmp";    
+$username = "root";         
+$password = "";            
+$dbname = "shirmpcare";    
+
 $conn = new mysqli($servername, $username, $password, $dbname);
  
 if ($conn->connect_error) {

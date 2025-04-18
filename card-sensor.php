@@ -145,7 +145,7 @@
                         },
                         xaxis: {
                             type: 'datetime',
-                            categories: [] // Akan diupdate dengan data terbaru
+                            categories: []  
                         },
                         tooltip: {
                             x: {

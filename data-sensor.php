@@ -1,6 +1,10 @@
 <?php
 include "koneksi.php"; // Pastikan file koneksi sudah benar
-
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    echo "ONLY POST METHOD";
+    $conn->close();
+    die;
+} 
 // Jika ada data POST yang diterima
 if (
     $_SERVER["REQUEST_METHOD"] == "POST" &&
@@ -10,7 +14,7 @@ if (
     isset($_POST['dissolveOxygen']) &&  // Validasi untuk parameter DO
     isset($_POST['aerator1']) &&       // Validasi untuk aerator1
     isset($_POST['aerator2'])
-) {       // Validasi untuk aerator2
+) { // Validasi untuk aerator2
 
     // Ambil data dari POST
     $ph = $_POST['ph'];
@@ -29,9 +33,10 @@ if (
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-} else {
-    echo "Invalid request or missing parameters";
+} else { 
+    echo "Missing parameters";
 }
+
 
 // Tutup koneksi
 $conn->close();
