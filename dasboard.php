@@ -48,7 +48,7 @@ include "koneksi.php";
         <div class="d-flex align-items-center justify-content-between">
             <a href="dasboard.php" class="logo d-flex align-items-center">
                 <img src="assets/img/pens.png" alt="">
-                <span>Shirmp Monitoring</span>
+                <span>Shrimp Monitoring</span>
                 <span style="color: #fd0000;">.</span>
             </a>
 

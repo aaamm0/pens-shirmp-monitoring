@@ -116,15 +116,21 @@
                                 curve: 'smooth',
                                 width: 2
                             },
-                            xaxis: {
-                                type: 'datetime',
-                                categories: []
-                            },
-                            tooltip: {
+                            options: {
+                            scales: {
                                 x: {
-                                    format: 'dd/MM/yy HH:mm'
+                                    type: 'time',
+                                    time: {
+                                        unit: 'hour', // atau 'day', 'minute', sesuaikan
+                                        tooltipFormat: 'yyyy-MM-dd HH:mm:ss'
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: 'Timestamp'
+                                    }
                                 }
-                            },
+                            }
+                        },
                             responsive: [{
                                     breakpoint: 768,
                                     options: {

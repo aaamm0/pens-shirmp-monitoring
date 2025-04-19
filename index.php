@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Shirmp Care</title>
+  <title>Shrimp Care</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -36,7 +36,7 @@
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo-test.png" alt="Logo"> -->
-        <h1 class="sitename">Shirmp Care</h1>
+        <h1 class="sitename">Shrimp Care</h1>
         <span>.</span>
       </a>
 
@@ -63,7 +63,7 @@
       <div class="container">
         <div class="row gy-4 justify-content-center justify-content-lg-between">
           <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">Shirmp Care</h1>
+            <h1 data-aos="fade-up">Shrimp Care</h1>
             <p data-aos="fade-up" data-aos-delay="100">Providing precise, real-time monitoring tools to maintenance ideal water conditions, improve shrimp health, increase yields, and support sustainable aquaculture practices.</p>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
               <a href="#about" class="btn-get-started">Find Out More</a>
@@ -200,7 +200,7 @@
               <i class="icon bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>monitoring_shirmp@pens.com</p>
+                <p>monitoring_Shrimp@pens.com</p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -213,7 +213,7 @@
 
   <footer class="bg-dark py-5">
     <div class="container px-4 px-lg-5">
-      <div class="small text-center text-light">Copyright &copy; 2024 - Shirmp Care Politeknik Elektronika Negeri Surabaya</div>
+      <div class="small text-center text-light">Copyright &copy; 2024 - Shrimp Care Politeknik Elektronika Negeri Surabaya</div>
     </div>
   </footer>
   <!-- Scroll Top -->

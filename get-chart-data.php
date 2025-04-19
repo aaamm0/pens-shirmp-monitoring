@@ -2,7 +2,8 @@
 include "koneksi.php";
 
 // Query untuk mengambil data terakhir (10 data terakhir)
-$sql = "SELECT * FROM sensor_data ORDER BY id DESC LIMIT 20";
+$sql = "SELECT * FROM (SELECT * FROM sensor_data ORDER BY id DESC LIMIT 20) AS sub ORDER BY id ASC";
+
 
 $result = $conn->query($sql);
 

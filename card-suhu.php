@@ -117,13 +117,19 @@
                                 curve: 'smooth',
                                 width: 2
                             },
-                            xaxis: {
-                                type: 'datetime',
-                                categories: []
-                            },
-                            tooltip: {
-                                x: {
-                                    format: 'dd/MM/yy HH:mm'
+                            options: {
+                                scales: {
+                                    x: {
+                                        type: 'time',
+                                        time: {
+                                            unit: 'hour', // atau 'day', 'minute', sesuaikan
+                                            tooltipFormat: 'yyyy-MM-dd HH:mm:ss'
+                                        },
+                                        title: {
+                                            display: true,
+                                            text: 'Timestamp'
+                                        }
+                                    }
                                 }
                             },
                             responsive: [{
@@ -228,9 +234,9 @@
                 }
             }]
         });
-        
+
         doChart.render();
-        
+
         function updateDOChart() {
             fetch('get-card-data.php')
                 .then(response => response.json())
@@ -238,7 +244,7 @@
                     let tempValue = parseFloat(data.temperature).toFixed(2);
                     let normalizedValue = Math.max(minDO, Math.min(tempValue, maxDO));
                     let seriesValue = ((normalizedValue - minDO) / (maxDO - minDO)) * 100;
-                    
+
                     doChart.updateSeries([seriesValue]);
                     document.getElementById("tempValue").innerText = tempValue + "°C";
                 })
