@@ -34,7 +34,7 @@ if (
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 } else { 
-    echo "Missing parameters";
+    echo "Missing parameters ";
 }
 
 
