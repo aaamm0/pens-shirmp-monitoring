@@ -3,7 +3,7 @@
 $servername = "localhost";   
 $username = "aam";         
 $password = "aam123";            
-// $dbname = "aam_shirmp";    
+$dbname = "aam_shirmp";    
 // $servername = "localhost";   
 // $username = "root";         
 // $password = "";            

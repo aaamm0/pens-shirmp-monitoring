@@ -88,34 +88,34 @@ include "koneksi.php";
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="/dasboard.php">
                     <i class="bi bi-sliders"></i><span>Parameter</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a class="nav-link collapsed" href="suhu.php">
+                        <a class="nav-link collapsed" href="/suhu.php">
                             <i class="bi bi-circle"></i><span>Temperature</span>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link collapsed" href="ph.php">
+                        <a class="nav-link collapsed" href="/ph.php">
                             <i class="bi bi-circle"></i><span>pH</span>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link collapsed" href="salinitas.php">
+                        <a class="nav-link collapsed" href="/salinitas.php">
                             <i class="bi bi-circle"></i><span>Salinity</span>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link collapsed" href="do.php">
+                        <a class="nav-link collapsed" href="/do.php">
                             <i class="bi bi-circle"></i><span>Dissolved Oxygen</span>
                         </a>
                     </li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="history.php">
+                <a class="nav-link collapsed" href="/history.php">
                     <i class="bi bi-clock-history"></i>
                     <span>History</span>
                 </a>
