@@ -157,7 +157,7 @@ include "koneksi.php";
                         <tbody>
                             <?php
                             // Query untuk mengambil data dari tabel sensor_data
-                            $sql = "SELECT * FROM sensor_data";
+                            $sql = "SELECT * FROM sensor_data ORDER BY id DESC";
                             $result = $conn->query($sql);
                             $no = 1;
 
