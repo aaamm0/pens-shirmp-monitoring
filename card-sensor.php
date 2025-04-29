@@ -158,7 +158,7 @@
                                 }
                             }
                         }
- 
+
                     });
 
                     // Fungsi untuk memperbarui data pada grafik secara real-time
@@ -272,8 +272,10 @@
                 document.getElementById("ph").innerHTML = `${parseFloat(data.ph).toFixed(2)}`;
                 document.getElementById("salinity").innerHTML = `${parseFloat(data.salinity).toFixed(2)} ppt`;
                 document.getElementById("dissolveOxygen").innerHTML = `${data.dissolveOxygen} mg/L`;
-                document.getElementById("aerator1").innerHTML = `${data.aerator1} `;
-                document.getElementById("aerator2").innerHTML = `${data.aerator2} `;
+                const aerator1Status = parseInt(data.aerator1) === 1 ? "ON" : "OFF";
+                const aerator2Status = parseInt(data.aerator2) === 1 ? "ON" : "OFF";
+                document.getElementById("aerator1").innerHTML = aerator1Status;
+                document.getElementById("aerator2").innerHTML = aerator2Status;
 
                 // Update the Kondisi based on Aerator status
                 let kondisi = "Baik"; // Default condition if both are off
