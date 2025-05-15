@@ -223,7 +223,9 @@
                 </div>
                 <div class="ps-3">
                     <h6 id="aerator1">--</h6>
+                    <!-- <small id="aerator1_duration" class="text-muted">Time: --</small> -->
                 </div>
+
             </div>
         </div>
     </div>
@@ -239,7 +241,9 @@
                 </div>
                 <div class="ps-3">
                     <h6 id="aerator2">--</h6>
+                    <!-- <small id="aerator2_duration" class="text-muted">Time: --</small> -->
                 </div>
+
             </div>
         </div>
     </div>
@@ -263,43 +267,44 @@
 <script>
     // Fungsi untuk memperbarui data pada card secara real-time
     function updateCards() {
-        fetch('get-card-data.php') // Mengambil data dari backend
-            .then(response => response.json()) // Mengonversi respons menjadi JSON
+        // Ambil data sensor (realtime)
+        fetch('get-card-data.php')
+            .then(response => response.json())
             .then(data => {
-                // Debugging: cek data di console
-                console.log(data);
                 document.getElementById("temp").innerHTML = `${data.temperature} °C`;
                 document.getElementById("ph").innerHTML = `${parseFloat(data.ph).toFixed(2)}`;
                 document.getElementById("salinity").innerHTML = `${parseFloat(data.salinity).toFixed(2)} ppt`;
                 document.getElementById("dissolveOxygen").innerHTML = `${data.dissolveOxygen} mg/L`;
+
                 const aerator1Status = parseInt(data.aerator1) === 1 ? "ON" : "OFF";
                 const aerator2Status = parseInt(data.aerator2) === 1 ? "ON" : "OFF";
+
                 document.getElementById("aerator1").innerHTML = aerator1Status;
                 document.getElementById("aerator2").innerHTML = aerator2Status;
 
-                // Update the Kondisi based on Aerator status
-                let kondisi = "Baik"; // Default condition if both are off
-
-                // Check if aerator1 or aerator2 is on
+                // Menentukan kondisi
+                let kondisi = "Baik";
                 if (parseInt(data.aerator1) === 1 || parseInt(data.aerator2) === 1) {
-                    kondisi = "Normal"; // One of the aerators is on
+                    kondisi = "Normal";
                 }
-
-                // If both aerators are on, set condition to "Buruk"
                 if (parseInt(data.aerator1) === 1 && parseInt(data.aerator2) === 1) {
-                    kondisi = "Buruk"; // Both aerators are on
+                    kondisi = "Buruk";
                 }
-
-                // Set the Kondisi text content
                 document.getElementById("kondisi").innerHTML = kondisi;
-
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch(error => console.error('Error fetching card data:', error));
+
+        // Ambil durasi aerator (dari database, bukan browser)
+        fetch('get-aerator-duration.php')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("aerator1_duration").innerHTML = "Time: " + data.aerator1_duration;
+                document.getElementById("aerator2_duration").innerHTML = "Time: " + data.aerator2_duration;
+            })
+            .catch(error => console.error('Error fetching aerator duration:', error));
     }
 
     // Panggil fungsi setiap 5 detik
-    setInterval(updateCards, 5000);
-
-    // Panggil pertama kali saat halaman dimuat
-    updateCards();
+    setInterval(updateCards, 1000);
+    updateCards(); // Panggilan awal
 </script>
