@@ -223,7 +223,7 @@
                 </div>
                 <div class="ps-3">
                     <h6 id="aerator1">--</h6>
-                    <!-- <small id="aerator1_duration" class="text-muted">Time: --</small> -->
+                    <small id="aerator1_duration" class="text-muted">Time: --</small>
                 </div>
 
             </div>
@@ -241,7 +241,7 @@
                 </div>
                 <div class="ps-3">
                     <h6 id="aerator2">--</h6>
-                    <!-- <small id="aerator2_duration" class="text-muted">Time: --</small> -->
+                    <small id="aerator2_duration" class="text-muted">Time: --</small>
                 </div>
 
             </div>
@@ -283,7 +283,13 @@
                 document.getElementById("aerator2").innerHTML = aerator2Status;
 
                 // Menentukan kondisi
-                let kondisi = "Baik";
+                let kondisi ;
+                 if (parseInt(data.aerator1) === 0 && parseInt(data.aerator2) === 0 && parseFloat(data.dissolveOxygen) === 0.00) {
+                    kondisi = "NULL";
+                }
+                else if (parseInt(data.aerator1) === 0 && parseInt(data.aerator2) === 0) {
+                    kondisi = "Baik";
+                }
                 if (parseInt(data.aerator1) === 1 || parseInt(data.aerator2) === 1) {
                     kondisi = "Normal";
                 }

@@ -154,31 +154,24 @@ include "koneksi.php";
 
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php
-                            // Query untuk mengambil data dari tabel sensor_data
-                            $sql = "SELECT * FROM sensor_data ORDER BY id DESC";
-                            $result = $conn->query($sql);
-                            $no = 1;
-
-                            // Jika ada data, tampilkan dalam bentuk tabel
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>
-                                <td>" . $no++ . "</td>
-                                <td>" . $row["temperature"] . "</td>
-                                <td>" . $row["ph"] . "</td>
-                                <td>" . $row["salinity"] . "</td>
-                                <td>" . $row["dissolveOxygen"] . "</td>
-                                <td>" . $row["timestamp"] . "</td>
-                                <td>" . $row["aerator1"] . "</td>
-                                <td>" . $row["aerator2"] . "</td>
-                                </tr>";
+                        <tbody id="sensor-table-body">
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                function loadTableData() {
+                                    $.ajax({
+                                        url: 'get-table-data.php',
+                                        success: function(data) {
+                                            $('#sensor-table-body').html(data);
+                                        }
+                                    });
                                 }
-                            } else {
-                                echo "<tr><td colspan='7'>No data available</td></tr>";
-                            }
-                            ?>
+
+                                // Panggil pertama kali
+                                loadTableData();
+
+                                // Update setiap 10 detik
+                                setInterval(loadTableData, 1000);
+                            </script>
                         </tbody>
                     </table>
                 </div>
@@ -206,6 +199,7 @@ include "koneksi.php";
     <!-- Template Main JS File -->
     <script src="assets/js/dasboard.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 </body>

@@ -153,26 +153,25 @@ include "koneksi.php";
 
                             </tr>
                         </thead>
-                        <tbody>
-                            <?php
-                            // Query untuk mengambil data dari tabel sensor_data
-                            $sql = "SELECT * FROM sensor_data";
-                            $result = $conn->query($sql);
-                            $no = 1;
-
-                            // Jika ada data, tampilkan dalam bentuk tabel
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>
-                                <td>" . $no++ . "</td> 
-                                <td>" . $row["salinity"] . "</td> 
-                                <td>" . $row["timestamp"] . "</td> 
-                                </tr>";
+                        <tbody id="salinitas">
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                function loadTableData() {
+                                    $.ajax({
+                                        url: 'get-table-salinitas.php',
+                                        success: function(data) {
+                                            $('#salinitas').html(data);
+                                        }
+                                    });
                                 }
-                            } else {
-                                echo "<tr><td colspan='7'>No data available</td></tr>";
-                            }
-                            ?>
+
+                                // Panggil pertama kali
+                                loadTableData();
+
+                                // Update setiap 10 detik
+                                setInterval(loadTableData, 1000);
+                            </script>
+
                         </tbody>
                     </table>
                 </div>

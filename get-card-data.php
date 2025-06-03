@@ -2,7 +2,7 @@
 include "koneksi.php";
 
 // Query untuk mengambil data terbaru
-$sql = "SELECT * FROM sensor_data ORDER BY id DESC LIMIT 1";
+$sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 1";
 $result = $conn->query($sql);
 
 $data = array();
