@@ -1,7 +1,7 @@
 <?php
 include "koneksi.php";
 
-$sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 20";
+$sql = "SELECT * FROM sensor_data ORDER BY timestamp  ";
 $result = $conn->query($sql);
 $no = 1;
 

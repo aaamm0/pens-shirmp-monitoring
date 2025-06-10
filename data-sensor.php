@@ -24,6 +24,9 @@ if (
     $dissolveOxygen = $_POST['dissolveOxygen'];
     $aerator1 = $_POST['aerator1'];
     $aerator2 = $_POST['aerator2'];
+    
+    $durasiaerator1 = $_POST['durasiaerator'];
+    $durasiaerator2 = $_POST['durasiaerator2'];
 
     // Cek apakah timestamp dikirim
     if (isset($_POST['timestamp']) && !empty($_POST['timestamp'])) {
@@ -33,8 +36,8 @@ if (
     }
 
     // Simpan data ke database
-    $sql = "INSERT INTO sensor_data (temperature, ph, salinity, dissolveOxygen, aerator1, aerator2, timestamp) 
-            VALUES ('$temperature', '$ph', '$salinity', '$dissolveOxygen', '$aerator1', '$aerator2', '$timestamp')";
+    $sql = "INSERT INTO sensor_data (temperature, ph, salinity, dissolveOxygen, aerator1, aerator2, timestamp, aerator1_duration, aerator2_duration) 
+            VALUES ('$temperature', '$ph', '$salinity', '$dissolveOxygen', '$aerator1', '$aerator2', '$timestamp', '$durasiaerator1', '$durasiaerator2')";
 
     if ($conn->query($sql) === TRUE) {
         echo "✅ Data inserted successfully";
