@@ -15,7 +15,9 @@ if (
     isset($_POST['temperature']) &&
     isset($_POST['dissolveOxygen']) &&
     isset($_POST['aerator1']) &&
-    isset($_POST['aerator2'])
+    isset($_POST['aerator2']) &&
+    isset($_POST['durasiaerator']) &&
+    isset($_POST['durasiaerator2'])
 ) {
     // Ambil data dari POST
     $ph = $_POST['ph'];
@@ -24,7 +26,7 @@ if (
     $dissolveOxygen = $_POST['dissolveOxygen'];
     $aerator1 = $_POST['aerator1'];
     $aerator2 = $_POST['aerator2'];
-    
+
     $durasiaerator1 = $_POST['durasiaerator'];
     $durasiaerator2 = $_POST['durasiaerator2'];
 
@@ -45,10 +47,8 @@ if (
         echo "❌ Error: " . $sql . "<br>" . $conn->error;
     }
 } else {
-    echo "⚠️ Missing parameters";
+    echo "⚠ Missing parameters";
 }
 
 // Tutup koneksi
 $conn->close();
-?>
-    
